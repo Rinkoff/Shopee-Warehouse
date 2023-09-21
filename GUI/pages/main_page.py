@@ -64,8 +64,36 @@ class MainPage(tk.Frame):
             self.product_tw.heading(section, text=section)
             self.product_tw.column(section, width=40)
 
+        print(self.labels)
 
+        # Add Section Label effects
+        self.labels["Add Section"].bind("<Button-1>", self.add_section_click)
+        self.labels["Add Section"].bind("<Enter>",lambda event: self.label_hover(event,self.labels["Add Section"]))
+        self.labels["Add Section"].bind("<Leave>", lambda event: self.label_hover_off(event, self.labels["Add Section"]))
 
+        #Remove Section Label effects
+        self.labels["Remove Section"].bind("<Button-1>", self.remove_section_click)
+        self.labels["Remove Section"].bind("<Enter>", lambda event: self.label_hover(event, self.labels["Remove Section"]))
+        self.labels["Remove Section"].bind("<Leave>",
+                                        lambda event: self.label_hover_off(event, self.labels["Remove Section"]))
+
+        #Add Status Label effects
+        self.labels["Add Status"].bind("<Button-1>", self.add_status_click)
+        self.labels["Add Status"].bind("<Enter>", lambda event: self.label_hover(event, self.labels["Add Status"]))
+        self.labels["Add Status"].bind("<Leave>",
+                                        lambda event: self.label_hover_off(event, self.labels["Add Status"]))
+
+        #New Warehouse Label effects
+        self.labels["New Warehouse"].bind("<Button-1>", self.new_warehouse_click)
+        self.labels["New Warehouse"].bind("<Enter>", lambda event: self.label_hover(event, self.labels["New Warehouse"]))
+        self.labels["New Warehouse"].bind("<Leave>",
+                                        lambda event: self.label_hover_off(event, self.labels["New Warehouse"]))
+
+        #Switch Warehouses Label effects
+        self.labels["Switch Warehouses"].bind("<Button-1>", self.switch_warehouse_click)
+        self.labels["Switch Warehouses"].bind("<Enter>", lambda event: self.label_hover(event, self.labels["Switch Warehouses"]))
+        self.labels["Switch Warehouses"].bind("<Leave>",
+                                        lambda event: self.label_hover_off(event, self.labels["Switch Warehouses"]))
 
     def on_entry_click(self, event):
         if self.searchbar.get() == "Search...":
@@ -82,3 +110,23 @@ class MainPage(tk.Frame):
     #     if self.searchbar.edit_modified():
     #         self.search()
     #     self.searchbar.edit_modified(False)
+
+    def add_section_click(self,event):
+        pass
+
+    def remove_section_click(self,event):
+        pass
+
+    def add_status_click(self,event):
+        pass
+
+    def new_warehouse_click(self,event):
+        pass
+
+    def switch_warehouse_click(self,event):
+        pass
+    def label_hover(self,event,label):
+        label.config(foreground="#ababab")
+
+    def label_hover_off(self,event,label):
+        label.config(foreground="#000000")
